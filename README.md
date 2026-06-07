@@ -40,11 +40,11 @@ npx degit github:user/repo#branch-name <folder-name>
 4. Cloning this project with skeleton
 
 ```bash
-git clone https://github.com/actionanand/expenzo.git --branch 1-skeleton angular-proj-name
+git clone https://github.com/actionanand/angular-22.git --branch 1-skeleton new-proj-name
 ```
 
 ```bash
-npx degit github:actionanand/expenzo#1-skeleton angular-proj-name
+npx degit github:actionanand/angular-22#1-skeleton new-proj-name
 ```
 
 ## Automate using `Prettier`, `Es Lint` and `Husky`
