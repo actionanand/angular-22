@@ -37,7 +37,13 @@ git clone <url> --branch <branch>
 npx degit github:user/repo#branch-name <folder-name>
 ```
 
-4. Cloning this project with skeleton
+4. Cloning repositories using **gitpick**
+
+```bash
+npx gitpick github_proj_url -b branch-name
+```
+
+5. Cloning this project with skeleton
 
 ```bash
 git clone https://github.com/actionanand/angular-22.git --branch 1-skeleton new-proj-name
@@ -45,6 +51,10 @@ git clone https://github.com/actionanand/angular-22.git --branch 1-skeleton new-
 
 ```bash
 npx degit github:actionanand/angular-22#1-skeleton new-proj-name
+```
+
+```bash
+npx gitpick https://github.com/actionanand/angular-22 -b 1-skeleton
 ```
 
 ## Automate using `Prettier`, `Es Lint` and `Husky`
