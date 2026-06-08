@@ -6,20 +6,16 @@
 
 .timeline {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(10.5rem, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(8.75rem, 1fr));
   gap: 0.65rem;
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
-  padding: 0.15rem 0 0.65rem;
-  scrollbar-color: #9fb4ce #edf2f7;
+  padding: 0;
 }
 
 button {
-  min-height: 5.75rem;
+  min-height: 5.25rem;
   border: 1px solid #cfd8e3;
   border-radius: 8px;
   background: #ffffff;
@@ -60,4 +56,15 @@ small {
   color: #4a5568;
   font-size: 0.82rem;
   line-height: 1.35;
+}
+
+@media (max-width: 520px) {
+  .timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  button {
+    min-height: 4.75rem;
+    padding: 0.7rem;
+  }
 }
