@@ -1,8 +1,10 @@
 :host {
   display: block;
+  min-width: 0;
 }
 
 .example {
+  min-width: 0;
   border: 1px solid #d8e0ea;
   border-radius: 8px;
   background: #111827;
@@ -36,6 +38,7 @@ span {
 }
 
 pre {
+  max-width: 100%;
   margin: 0;
   padding: 1rem;
   overflow-x: auto;

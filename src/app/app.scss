@@ -8,9 +8,13 @@
 .page {
   display: grid;
   gap: 1.5rem;
-  width: min(100% - 2rem, 76rem);
+  width: min(calc(100% - 2rem), 76rem);
   margin: 0 auto;
   padding: 2rem 0 3rem;
+}
+
+.page > * {
+  min-width: 0;
 }
 
 .hero {
@@ -19,6 +23,10 @@
   gap: 1.25rem;
   align-items: end;
   padding: 1rem 0 0.25rem;
+}
+
+.hero > * {
+  min-width: 0;
 }
 
 .hero__content {
@@ -81,6 +89,8 @@ h1 {
 .section,
 app-summary-panel {
   display: block;
+  min-width: 0;
+  max-width: 100%;
   border: 1px solid #d8e0ea;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.78);
@@ -90,7 +100,7 @@ app-summary-panel {
 
 @media (max-width: 760px) {
   .page {
-    width: min(100% - 1rem, 76rem);
+    width: min(calc(100% - 1rem), 76rem);
     padding-top: 1rem;
   }
 

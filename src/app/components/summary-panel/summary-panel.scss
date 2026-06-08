@@ -1,10 +1,12 @@
 :host {
   display: block;
+  min-width: 0;
 }
 
 .summary {
   display: grid;
   gap: 1.1rem;
+  min-width: 0;
 }
 
 .summary__eyebrow {
@@ -46,10 +48,12 @@ p {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-width: 0;
 }
 
 .summary__stats div,
 .summary__themes article {
+  min-width: 0;
   border: 1px solid #d8e0ea;
   border-radius: 8px;
   background: #ffffff;

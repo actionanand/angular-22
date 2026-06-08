@@ -1,10 +1,12 @@
 :host {
   display: block;
+  min-width: 0;
 }
 
 .compare {
   display: grid;
   gap: 1.1rem;
+  min-width: 0;
 }
 
 .compare__header {
@@ -12,6 +14,7 @@
   grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 1.1fr);
   gap: 1rem;
   align-items: end;
+  min-width: 0;
 }
 
 .compare__eyebrow {
@@ -52,6 +55,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+  min-width: 0;
 }
 
 label {
@@ -110,6 +114,7 @@ button:focus-visible {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 1rem;
   align-items: center;
+  min-width: 0;
 }
 
 .compare__result h3 {
@@ -129,6 +134,7 @@ button:focus-visible {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+  min-width: 0;
 }
 
 ul {
@@ -166,6 +172,7 @@ li span {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
   gap: 1rem;
+  min-width: 0;
 }
 
 @media (max-width: 760px) {

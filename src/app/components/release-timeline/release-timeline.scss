@@ -1,5 +1,7 @@
 :host {
   display: block;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .timeline {
@@ -7,7 +9,11 @@
   grid-auto-flow: column;
   grid-auto-columns: minmax(10.5rem, 1fr);
   gap: 0.65rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
   padding: 0.15rem 0 0.65rem;
   scrollbar-color: #9fb4ce #edf2f7;
 }
