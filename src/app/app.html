@@ -1,3 +1,36 @@
-<div style="text-align: center; color: green; font-size: 24px;"> {{title()}} </div>
+<main class="page">
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero__content">
+      <p class="hero__eyebrow">Angular release explorer</p>
+      <h1 id="page-title">Major changes from Angular 8 to Angular 22</h1>
+      <p>
+        A practical, version-by-version guide for teams moving from Ivy-era Angular to standalone,
+        signals, modern templates, and Angular 22 signal-first defaults.
+      </p>
+    </div>
 
-<router-outlet />
+    <div class="hero__panel" aria-label="Current focus">
+      <span>Current focus</span>
+      <strong>{{ selectedRelease().label }}</strong>
+      <p>{{ selectedRelease().theme }}</p>
+    </div>
+  </section>
+
+  <app-summary-panel [releases]="releases" />
+
+  <section class="section" aria-label="Select a release">
+    <app-release-timeline
+      [releases]="releases"
+      [selectedKey]="selectedKey()"
+      (selected)="selectRelease($event)"
+    />
+  </section>
+
+  <section class="section">
+    <app-release-detail [release]="selectedRelease()" />
+  </section>
+
+  <section class="section">
+    <app-compare-panel [releases]="releases" />
+  </section>
+</main>
