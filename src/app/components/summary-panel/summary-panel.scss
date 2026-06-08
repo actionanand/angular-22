@@ -1,0 +1,110 @@
+:host {
+  display: block;
+}
+
+.summary {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.summary__eyebrow {
+  margin: 0 0 0.35rem;
+  color: #1967d2;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h2,
+h3,
+p,
+dl,
+dd {
+  margin: 0;
+}
+
+h2 {
+  color: #172033;
+  font-size: clamp(1.45rem, 2.5vw, 2rem);
+  line-height: 1.15;
+}
+
+h3 {
+  color: #172033;
+  font-size: 1rem;
+}
+
+p {
+  max-width: 68rem;
+  color: #4a5568;
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.summary__stats,
+.summary__themes {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.summary__stats div,
+.summary__themes article {
+  border: 1px solid #d8e0ea;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 1rem;
+}
+
+dt {
+  color: #1967d2;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+dd {
+  margin-top: 0.35rem;
+  color: #4a5568;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.summary__themes article {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.summary__sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+a {
+  border: 1px solid #cfd8e3;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #174ea6;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+a:hover {
+  border-color: #1967d2;
+  background: #e8f0fe;
+}
+
+a:focus-visible {
+  outline: 3px solid #fbbc04;
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  .summary__stats,
+  .summary__themes {
+    grid-template-columns: 1fr;
+  }
+}
