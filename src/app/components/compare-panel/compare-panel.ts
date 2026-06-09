@@ -20,7 +20,7 @@ interface ComparisonPreset {
         </div>
         <p>
           Pick any two releases to see what changed between them. The presets cover common questions
-          like 9 vs 10, 9 to 15, and 21.2 to 22.
+          like AngularJS to 2, 4 to 8, 9 vs 10, 9 to 15, and 21.2 to 22.
         </p>
       </div>
 
@@ -112,6 +112,8 @@ export class ComparePanel {
   readonly releases = input.required<readonly AngularRelease[]>();
 
   protected readonly presets: readonly ComparisonPreset[] = [
+    { label: 'AngularJS to 2', start: 'angularjs', end: '2' },
+    { label: '4 to 8', start: '4', end: '8' },
     { label: '9 vs 10', start: '9', end: '10' },
     { label: '9 to 15', start: '9', end: '15' },
     { label: '16 to 17', start: '16', end: '17' },
