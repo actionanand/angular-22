@@ -19,8 +19,18 @@ describe('App', () => {
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Major changes from Angular 8 to Angular 22',
+      'Major changes before Angular 8 to Angular 22',
     );
+  });
+
+  it('should include the pre Angular 8 history milestone', async () => {
+    const fixture = TestBed.createComponent(App);
+    await fixture.whenStable();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    expect(compiled.textContent).toContain('Before Angular 8');
+    expect(compiled.textContent).toContain('Why Angular 3 was skipped');
+    expect(compiled.textContent).toContain('AngularJS and Angular are different frameworks');
   });
 
   it('should include the Angular 21.2 milestone', async () => {

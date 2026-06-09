@@ -37,6 +37,80 @@ export interface AngularRelease {
 
 export const angularReleases: readonly AngularRelease[] = [
   {
+    key: 'before-8',
+    label: 'Before Angular 8',
+    order: 1,
+    year: '2010-2019',
+    theme: 'From AngularJS to modern Angular',
+    summary:
+      'Before Angular 8, the ecosystem moved from AngularJS, also called Angular 1.x, to a complete TypeScript-based rewrite known as Angular or Angular 2+. Angular 2 introduced the modern component model, Angular 4 skipped the v3 name to align package versions, and versions 5 to 7 refined CLI, performance, Material, PWA, and router workflows.',
+    features: [
+      {
+        title: 'AngularJS and Angular are different frameworks',
+        category: 'Migration',
+        impact: 'Major',
+        description:
+          'AngularJS, also called Angular 1.x, is the original JavaScript MVC framework. Angular 2+ is a separate TypeScript-based platform with components, dependency injection, RxJS, and a different template compiler.',
+      },
+      {
+        title: 'Angular 2 was a rewrite',
+        category: 'Migration',
+        impact: 'Major',
+        description:
+          'Angular 2 did not continue AngularJS internals. It introduced the modern architecture used by Angular today: components, decorators, services, pipes, and NgModules.',
+      },
+      {
+        title: 'Why Angular 3 was skipped',
+        category: 'Migration',
+        impact: 'Important',
+        description:
+          'Angular 3 was skipped so core framework packages could align with the router package, which had already reached version 3.x during the Angular 2 era.',
+      },
+      {
+        title: 'Angular 4 stabilized the new platform',
+        category: 'Performance',
+        impact: 'Important',
+        description:
+          'Angular 4 improved generated code size, template type checking, and compatibility after the Angular 2 rewrite.',
+      },
+      {
+        title: 'Angular 5 to 7 improved everyday workflows',
+        category: 'Tooling',
+        impact: 'Important',
+        description:
+          'These releases improved CLI builds, HttpClient adoption, Angular Material/CDK, service workers, PWA setup, router ergonomics, and dependency updates.',
+      },
+    ],
+    examples: [
+      {
+        title: 'AngularJS style',
+        language: 'html',
+        code: `<div ng-controller="TodoCtrl as vm">
+  <input ng-model="vm.newTodo">
+  <button ng-click="vm.add()">Add</button>
+</div>`,
+        explanation:
+          'AngularJS templates used directives like ng-controller, ng-model, and ng-click. The framework was JavaScript-first and controller-oriented.',
+      },
+      {
+        title: 'Modern Angular style',
+        language: 'ts',
+        code: `@Component({
+  selector: 'app-todo',
+  template: \`
+    <input [formControl]="todo">
+    <button type="button" (click)="add()">Add</button>
+  \`,
+})
+export class TodoComponent {
+  readonly todo = new FormControl('', { nonNullable: true });
+}`,
+        explanation:
+          'Angular 2+ uses components, TypeScript classes, decorators, and explicit bindings. It is not just a new version of AngularJS; it is a different framework lineage.',
+      },
+    ],
+  },
+  {
     key: '8',
     label: 'Angular 8',
     order: 8,
@@ -821,6 +895,14 @@ readonly results = httpResource(() => ({
 ];
 
 export const sourceLinks = [
+  {
+    label: 'AngularJS official site',
+    href: 'https://angularjs.org/',
+  },
+  {
+    label: 'Angular 4 release note',
+    href: 'https://blog.angular.io/angular-4-0-0-now-available-2d7d0999a032',
+  },
   {
     label: 'Angular version compatibility',
     href: 'https://angular.dev/reference/versions',

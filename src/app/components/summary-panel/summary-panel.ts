@@ -7,11 +7,13 @@ import { AngularRelease, sourceLinks } from '../../data/angular-releases';
     <section class="summary" aria-labelledby="summary-title">
       <div>
         <p class="summary__eyebrow">Executive summary</p>
-        <h2 id="summary-title">Angular 8 to 22 in one scan</h2>
+        <h2 id="summary-title">Angular history to 22 in one scan</h2>
         <p>
-          The big story is a move from Ivy modernization to standalone Angular, then signals, then
-          signal-first defaults. Angular 21.2 deserves its own stop because arrow functions in
-          templates and exhaustive switch checks landed there, not in 21.0.
+          AngularJS, also called Angular 1.x, is different from modern Angular 2+. Angular 3 was
+          skipped to align package versions, especially the router. After that, the big story moves
+          through Ivy modernization, standalone Angular, signals, and signal-first defaults. Angular
+          21.2 deserves its own stop because arrow functions in templates and exhaustive switch
+          checks landed there, not in 21.0.
         </p>
       </div>
 
@@ -32,12 +34,12 @@ import { AngularRelease, sourceLinks } from '../../data/angular-releases';
 
       <div class="summary__themes">
         <article>
-          <h3>Before v14</h3>
-          <p>Ivy, AOT, package format, and browser support changes dominate.</p>
+          <h3>Before v8</h3>
+          <p>AngularJS split, Angular 2 rewrite, skipped v3, then CLI and platform maturity.</p>
         </article>
         <article>
-          <h3>v14 to v17</h3>
-          <p>Standalone, typed forms, signals, control flow, and defer reshape authoring.</p>
+          <h3>v8 to v17</h3>
+          <p>Ivy, typed forms, standalone, signals, control flow, and defer reshape authoring.</p>
         </article>
         <article>
           <h3>v18 to v22</h3>
