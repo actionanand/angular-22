@@ -28,9 +28,12 @@ describe('App', () => {
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
 
+    expect(compiled.textContent).toContain('AngularJS');
+    expect(compiled.textContent).toContain('Angular 2');
+    expect(compiled.textContent).toContain('Angular 3 skipped');
     expect(compiled.textContent).toContain('Before Angular 8');
-    expect(compiled.textContent).toContain('Why Angular 3 was skipped');
-    expect(compiled.textContent).toContain('AngularJS and Angular are different frameworks');
+    expect(compiled.textContent).toContain('AngularJS and Angular are different');
+    expect(compiled.textContent).toContain('@angular/router was already 3.x');
   });
 
   it('should include the Angular 21.2 milestone', async () => {

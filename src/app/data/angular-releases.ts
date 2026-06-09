@@ -37,76 +37,499 @@ export interface AngularRelease {
 
 export const angularReleases: readonly AngularRelease[] = [
   {
-    key: 'before-8',
-    label: 'Before Angular 8',
+    key: 'angularjs',
+    label: 'AngularJS',
     order: 1,
-    year: '2010-2019',
-    theme: 'From AngularJS to modern Angular',
+    year: '2010-2022',
+    theme: 'Angular 1.x era',
     summary:
-      'Before Angular 8, the ecosystem moved from AngularJS, also called Angular 1.x, to a complete TypeScript-based rewrite known as Angular or Angular 2+. Angular 2 introduced the modern component model, Angular 4 skipped the v3 name to align package versions, and versions 5 to 7 refined CLI, performance, Material, PWA, and router workflows.',
+      'AngularJS, also called Angular 1.x, was the original Google framework for building Single Page Applications with HTML templates and JavaScript. It was first released as v0.9.0 on Wednesday, October 20, 2010, reached production-ready v1.0.0 on Thursday, June 14, 2012, had official EOL on Friday, December 31, 2021, and its final official release was v1.8.3 on Thursday, April 7, 2022.',
     features: [
       {
-        title: 'AngularJS and Angular are different frameworks',
+        title: 'AngularJS and Angular are different',
         category: 'Migration',
         impact: 'Major',
         description:
-          'AngularJS, also called Angular 1.x, is the original JavaScript MVC framework. Angular 2+ is a separate TypeScript-based platform with components, dependency injection, RxJS, and a different template compiler.',
+          'AngularJS is Angular 1.x. Modern Angular, starting with Angular 2, is a separate TypeScript-based framework with a different architecture, compiler, and component model.',
       },
       {
-        title: 'Angular 2 was a rewrite',
-        category: 'Migration',
-        impact: 'Major',
-        description:
-          'Angular 2 did not continue AngularJS internals. It introduced the modern architecture used by Angular today: components, decorators, services, pipes, and NgModules.',
-      },
-      {
-        title: 'Why Angular 3 was skipped',
-        category: 'Migration',
-        impact: 'Important',
-        description:
-          'Angular 3 was skipped so core framework packages could align with the router package, which had already reached version 3.x during the Angular 2 era.',
-      },
-      {
-        title: 'Angular 4 stabilized the new platform',
-        category: 'Performance',
-        impact: 'Important',
-        description:
-          'Angular 4 improved generated code size, template type checking, and compatibility after the Angular 2 rewrite.',
-      },
-      {
-        title: 'Angular 5 to 7 improved everyday workflows',
+        title: 'JavaScript, MVC, and MVVM patterns',
         category: 'Tooling',
         impact: 'Important',
         description:
-          'These releases improved CLI builds, HttpClient adoption, Angular Material/CDK, service workers, PWA setup, router ergonomics, and dependency updates.',
+          'AngularJS helped teams structure browser apps with controllers, templates, dependency injection, and scope-based state. It is commonly discussed through MVC and MVVM architecture lenses.',
+      },
+      {
+        title: 'Two-way data binding',
+        category: 'Templates',
+        impact: 'Major',
+        description:
+          'ng-model connected input state and template output directly. This made small SPAs productive, but large watcher-heavy apps could become expensive to update.',
+      },
+      {
+        title: 'Directives and scope',
+        category: 'Templates',
+        impact: 'Important',
+        description:
+          'AngularJS used directives such as ng-repeat and ng-if, controllers, $scope, and dependency injection to organize UI behavior.',
+      },
+      {
+        title: 'Digest cycle performance limits',
+        category: 'Performance',
+        impact: 'Migration',
+        description:
+          'The digest cycle repeatedly checked watchers for changes. As apps grew, more watchers meant slower updates and harder performance tuning.',
+      },
+      {
+        title: 'Why AngularJS was rewritten',
+        category: 'Migration',
+        impact: 'Major',
+        description:
+          'By 2014 and 2015, large apps needed stronger mobile performance, component architecture, modern JavaScript and TypeScript tooling, and a cleaner scaling model than AngularJS could easily adopt.',
+      },
+      {
+        title: 'React, Vue, and mobile changed expectations',
+        category: 'Migration',
+        impact: 'Important',
+        description:
+          'React arrived in 2013 and Vue.js in 2014 with component-oriented mental models. At the same time, mobile-first apps made AngularJS performance and architecture limits more visible.',
       },
     ],
     examples: [
       {
-        title: 'AngularJS style',
+        title: 'AngularJS two-way binding',
+        language: 'html',
+        code: `<div ng-app>
+  <input ng-model="name">
+  Hello {{name}}
+</div>`,
+        explanation:
+          'ng-model keeps the input and displayed value connected through AngularJS two-way binding.',
+      },
+      {
+        title: 'AngularJS controller style',
         language: 'html',
         code: `<div ng-controller="TodoCtrl as vm">
   <input ng-model="vm.newTodo">
   <button ng-click="vm.add()">Add</button>
 </div>`,
         explanation:
-          'AngularJS templates used directives like ng-controller, ng-model, and ng-click. The framework was JavaScript-first and controller-oriented.',
+          'AngularJS apps often organized behavior with controllers, scope, and JavaScript-driven directives in templates.',
+      },
+    ],
+  },
+  {
+    key: '2',
+    label: 'Angular 2',
+    order: 2,
+    year: '2016',
+    theme: 'Modern Angular begins',
+    summary:
+      'Angular 2.0.0 was officially released on September 14, 2016. It was a complete rewrite of AngularJS and introduced the modern Angular platform: TypeScript, components, decorators, dependency injection, RxJS, templates, pipes, and NgModules.',
+    features: [
+      {
+        title: 'Complete rewrite from AngularJS',
+        category: 'Migration',
+        impact: 'Major',
+        description:
+          'Angular 2 did not continue AngularJS internals. It replaced controllers and $scope with components, classes, services, and explicit template bindings.',
       },
       {
-        title: 'Modern Angular style',
+        title: 'TypeScript-first framework',
+        category: 'Tooling',
+        impact: 'Major',
+        description:
+          'Angular moved toward classes, modules, decorators, strong typing, better IDE support, and build-time tooling.',
+      },
+      {
+        title: 'Component architecture',
+        category: 'Templates',
+        impact: 'Major',
+        description:
+          'Components became the primary UI building block, replacing the controller-heavy AngularJS style.',
+      },
+      {
+        title: 'Early release path',
+        category: 'Migration',
+        impact: 'Important',
+        description:
+          'Angular 2 was announced in January 2014, had a developer preview on April 30, 2015, beta in December 2015, RC1 in May 2016, and stable release in September 2016.',
+      },
+    ],
+    examples: [
+      {
+        title: 'Modern Angular component',
         language: 'ts',
         code: `@Component({
-  selector: 'app-todo',
-  template: \`
-    <input [formControl]="todo">
-    <button type="button" (click)="add()">Add</button>
-  \`,
+  selector: 'app-root',
+  template: 'Hello {{ name }}',
 })
-export class TodoComponent {
-  readonly todo = new FormControl('', { nonNullable: true });
+export class AppComponent {
+  name = 'Anand';
 }`,
         explanation:
-          'Angular 2+ uses components, TypeScript classes, decorators, and explicit bindings. It is not just a new version of AngularJS; it is a different framework lineage.',
+          'Modern Angular templates bind to component class properties instead of $scope, and the component becomes the main unit of UI behavior.',
+      },
+    ],
+  },
+  {
+    key: '3-skipped',
+    label: 'Angular 3 skipped',
+    order: 3,
+    year: '2017',
+    theme: 'Version alignment decision',
+    summary:
+      'Angular 3 was skipped because Angular is developed in a monorepo with separate packages. Core packages like @angular/core and @angular/compiler were at 2.x, while @angular/router had already advanced to 3.x. Releasing Angular 3 would have made package versions confusing, so the team aligned the framework on version 4.',
+    features: [
+      {
+        title: 'Monorepo with separate packages',
+        category: 'Tooling',
+        impact: 'Important',
+        description:
+          'Angular is developed in a single repository, but published as separate packages such as @angular/core, @angular/compiler, @angular/forms, and @angular/router.',
+      },
+      {
+        title: '@angular/router was already 3.x',
+        category: 'Routing',
+        impact: 'Major',
+        description:
+          'The router package had independent major updates during the Angular 2 era, so it reached version 3 while most core packages were still version 2.',
+      },
+      {
+        title: 'Version 4 synchronized SemVer',
+        category: 'Migration',
+        impact: 'Major',
+        description:
+          'Instead of shipping a confusing Angular 3 where package numbers did not line up, Angular moved the main packages to 4.0 together in March 2017.',
+      },
+      {
+        title: 'Predictable release cadence',
+        category: 'Migration',
+        impact: 'Important',
+        description:
+          'Modern Angular follows a predictable major-release rhythm, with major versions typically arriving about every six months around May and November.',
+      },
+    ],
+    examples: [
+      {
+        title: 'The package-version problem',
+        language: 'bash',
+        code: `@angular/core     2.x
+@angular/compiler 2.x
+@angular/router   3.x
+
+# Next unified framework version:
+@angular/core     4.0
+@angular/compiler 4.0
+@angular/router   4.0`,
+        explanation:
+          'Skipping Angular 3 was a versioning and communication choice, not a missing framework generation.',
+      },
+    ],
+  },
+  {
+    key: '4',
+    label: 'Angular 4',
+    order: 4,
+    year: '2017',
+    theme: 'Smaller and faster Angular',
+    summary:
+      'Angular 4 stabilized the new platform after the Angular 2 rewrite. It reduced generated code size, improved compilation, moved animations out of @angular/core, added template improvements, and supported newer TypeScript versions.',
+    features: [
+      {
+        title: 'Smaller generated code',
+        category: 'Performance',
+        impact: 'Major',
+        description:
+          'Angular 4 reduced generated code size significantly for many templates, with some cases seeing output shrink by up to 60%.',
+      },
+      {
+        title: 'Faster compilation',
+        category: 'Compiler',
+        impact: 'Important',
+        description:
+          'Compiler improvements helped reduce feedback time and made errors easier to understand.',
+      },
+      {
+        title: '*ngIf else syntax',
+        category: 'Templates',
+        impact: 'Important',
+        description:
+          'Templates could express else cases directly with *ngIf, reducing small conditional workarounds.',
+      },
+      {
+        title: 'Renderer2',
+        category: 'Tooling',
+        impact: 'Important',
+        description:
+          'Renderer2 became the supported renderer abstraction for DOM work that needs to stay platform-aware.',
+      },
+      {
+        title: 'Animations moved out of core',
+        category: 'Performance',
+        impact: 'Important',
+        description:
+          'Animations were pulled out of @angular/core so apps could avoid extra production code unless they imported the browser animations package.',
+      },
+      {
+        title: 'Email validator and TypeScript support',
+        category: 'Forms',
+        impact: 'Important',
+        description:
+          'Angular 4 added a built-in email validator and supported newer TypeScript versions beyond the Angular 2 baseline.',
+      },
+    ],
+    examples: [
+      {
+        title: '*ngIf with else',
+        language: 'html',
+        code: `<p *ngIf="isLoggedIn; else loggedOut">Welcome back</p>
+
+<ng-template #loggedOut>
+  <p>Please sign in</p>
+</ng-template>`,
+        explanation:
+          'This was a practical template improvement before Angular 17 introduced the modern @if control flow syntax.',
+      },
+    ],
+  },
+  {
+    key: '5',
+    label: 'Angular 5',
+    order: 5,
+    year: '2017',
+    theme: 'Compiler, HTTP, and forms polish',
+    summary:
+      'Angular 5 improved the compiler, enabled Build Optimizer by default for CLI production builds, added better internationalized pipes, improved Universal, and moved apps from @angular/http toward HttpClient.',
+    features: [
+      {
+        title: 'Compiler improvements',
+        category: 'Compiler',
+        impact: 'Major',
+        description:
+          'Angular 5 continued improving compilation output and production optimization.',
+      },
+      {
+        title: 'HttpClient replaces old HTTP API',
+        category: 'Migration',
+        impact: 'Major',
+        description:
+          '@angular/common/http introduced HttpClient as the modern replacement for @angular/http, including typed responses and no manual res.json() mapping.',
+      },
+      {
+        title: 'Build Optimizer by default',
+        category: 'Performance',
+        impact: 'Important',
+        description:
+          'CLI production builds used Build Optimizer to reduce bundle size and improve tree shaking.',
+      },
+      {
+        title: 'Forms updateOn blur and submit',
+        category: 'Forms',
+        impact: 'Important',
+        description:
+          'Reactive forms gained updateOn options so validation and value updates could happen on blur or submit rather than every input event.',
+      },
+      {
+        title: 'Universal transfer state',
+        category: 'SSR',
+        impact: 'Important',
+        description:
+          'Angular Universal gained TransferState support for passing server-rendered data to the client.',
+      },
+      {
+        title: 'RxJS 5.5 and router events',
+        category: 'Routing',
+        impact: 'Important',
+        description:
+          'Angular 5 supported RxJS 5.5 and added router lifecycle events that helped teams observe navigation.',
+      },
+    ],
+    examples: [
+      {
+        title: 'HttpClient response usage',
+        language: 'ts',
+        code: `readonly users$ = this.http.get<User[]>('/api/users');`,
+        explanation:
+          'HttpClient returns parsed JSON by default, so the old map(res => res.json()) pattern was no longer needed.',
+      },
+    ],
+  },
+  {
+    key: '6',
+    label: 'Angular 6',
+    order: 6,
+    year: '2018',
+    theme: 'CLI, libraries, and workspace tooling',
+    summary:
+      'Angular 6 shipped alongside Angular CLI 6 and Angular Material 6. It added ng update, ng add, Angular Elements, CDK improvements, workspace support, library support, schematics, tree-shakable providers, animation performance improvements, and RxJS 6.',
+    features: [
+      {
+        title: 'ng update and ng add',
+        category: 'Tooling',
+        impact: 'Major',
+        description:
+          'The CLI gained commands for guided dependency updates and package-driven setup workflows.',
+      },
+      {
+        title: 'Angular Elements',
+        category: 'Tooling',
+        impact: 'Major',
+        description:
+          'Angular components could be packaged as custom elements for use outside a full Angular app.',
+      },
+      {
+        title: 'CLI workspaces and library support',
+        category: 'Tooling',
+        impact: 'Important',
+        description:
+          'Angular CLI workspaces made multi-project repos and library generation first-class workflows.',
+      },
+      {
+        title: 'Schematics',
+        category: 'Tooling',
+        impact: 'Important',
+        description:
+          'Schematics provided a programmable way to generate and update Angular project code.',
+      },
+      {
+        title: 'Tree-shakable providers',
+        category: 'Performance',
+        impact: 'Important',
+        description:
+          'providedIn made services easier to tree shake and reduced NgModule provider boilerplate.',
+      },
+      {
+        title: 'RxJS 6',
+        category: 'Migration',
+        impact: 'Important',
+        description:
+          'Angular 6 moved the ecosystem to RxJS 6, including pipeable operators and migration work for older observable code.',
+      },
+    ],
+    examples: [
+      {
+        title: 'Tree-shakable service',
+        language: 'ts',
+        code: `@Injectable({ providedIn: 'root' })
+export class UserService {
+  readonly users$ = this.http.get<User[]>('/api/users');
+}`,
+        explanation:
+          'providedIn lets Angular register singleton services without adding them to an NgModule providers array.',
+      },
+    ],
+  },
+  {
+    key: '7',
+    label: 'Angular 7',
+    order: 7,
+    year: '2018',
+    theme: 'Material, CLI prompts, and performance',
+    summary:
+      'Angular 7 shipped with Angular CLI 7 and Angular Material 7. It focused on performance, CLI prompts, bundle budgets, dependency updates, and the CDK features that made large UI lists and interactions easier.',
+    features: [
+      {
+        title: 'Virtual scrolling',
+        category: 'Performance',
+        impact: 'Major',
+        description:
+          'The CDK virtual scroll viewport made long lists practical by rendering only the visible items.',
+      },
+      {
+        title: 'Drag and drop',
+        category: 'Templates',
+        impact: 'Important',
+        description:
+          'Angular CDK added drag-and-drop primitives for accessible interactive UI patterns.',
+      },
+      {
+        title: 'CLI prompts',
+        category: 'Tooling',
+        impact: 'Important',
+        description:
+          'The CLI began prompting for common setup choices such as routing and styling when running commands like ng new.',
+      },
+      {
+        title: 'Bundle budgets',
+        category: 'Performance',
+        impact: 'Important',
+        description:
+          'CLI bundle budgets helped teams catch bundle growth before it reached production.',
+      },
+      {
+        title: 'Angular Elements content projection',
+        category: 'Templates',
+        impact: 'Important',
+        description: 'Angular Elements improved support for content projection scenarios.',
+      },
+      {
+        title: 'Dependency updates',
+        category: 'Migration',
+        impact: 'Important',
+        description: 'Angular 7 aligned with TypeScript 3.1, RxJS 6.3, and Node 10 support.',
+      },
+    ],
+    examples: [
+      {
+        title: 'CLI prompt workflow',
+        language: 'bash',
+        code: `ng new dashboard
+
+# CLI asks about routing, stylesheet format, and other setup options.`,
+        explanation:
+          'Angular 7 made common project decisions more discoverable through CLI prompts and schematics.',
+      },
+      {
+        title: 'CDK virtual scroll',
+        language: 'html',
+        code: `<cdk-virtual-scroll-viewport itemSize="48">
+  <div *cdkVirtualFor="let item of items">{{ item.name }}</div>
+</cdk-virtual-scroll-viewport>`,
+        explanation:
+          'Virtual scrolling was one of the CDK features that helped Angular apps handle large interaction-heavy screens.',
+      },
+    ],
+  },
+  {
+    key: 'before-8',
+    label: 'Before Angular 8',
+    order: 7.5,
+    year: '2010-2019',
+    theme: 'Context recap',
+    summary:
+      'Before Angular 8, Angular went through the AngularJS era, a complete Angular 2 rewrite, the Angular 3 version skip, and Angular 4 to 7 platform maturity. This recap box connects that history before the Ivy and modern-build era begins.',
+    features: [
+      {
+        title: 'AngularJS to Angular was a framework change',
+        category: 'Migration',
+        impact: 'Major',
+        description:
+          'Angular 2+ intentionally dropped JS from the name and replaced AngularJS architecture with a TypeScript component platform.',
+      },
+      {
+        title: 'Angular 3 was skipped for package clarity',
+        category: 'Migration',
+        impact: 'Important',
+        description:
+          'Because @angular/router had already reached 3.x while core packages were 2.x, the team aligned the main packages at 4.0.',
+      },
+      {
+        title: 'Angular 4 to 7 refined the platform',
+        category: 'Tooling',
+        impact: 'Important',
+        description:
+          'These releases improved generated code, HttpClient, forms, Universal, CLI workspaces, schematics, libraries, Material/CDK, bundle budgets, and dependency baselines.',
+      },
+    ],
+    examples: [
+      {
+        title: 'AngularJS versus Angular',
+        language: 'html',
+        code: `AngularJS 1.x:  ng-repeat, ng-if, ng-model, $scope
+Angular 2+:     components, TypeScript, DI, AOT, signals`,
+        explanation:
+          'The name is similar, but the programming model changed from controller/scope-based JavaScript to component-based TypeScript.',
       },
     ],
   },
@@ -124,7 +547,7 @@ export class TodoComponent {
         category: 'Performance',
         impact: 'Major',
         description:
-          'CLI builds could ship modern JavaScript to modern browsers and fallback bundles to older browsers.',
+          'CLI builds shipped modern JavaScript to modern browsers and fallback bundles to older browsers, letting each browser choose based on its capabilities.',
       },
       {
         title: 'Dynamic import lazy routes',
@@ -140,6 +563,34 @@ export class TodoComponent {
         description:
           'The next compiler and runtime were available for early testing before becoming the default in v9.',
       },
+      {
+        title: 'Builder APIs in the CLI',
+        category: 'Tooling',
+        impact: 'Important',
+        description:
+          'Angular CLI builder APIs made commands like ng build, ng test, and ng run more customizable.',
+      },
+      {
+        title: 'Workspace APIs',
+        category: 'Tooling',
+        impact: 'Important',
+        description:
+          'CLI workspace APIs improved how tools read and update angular.json workspace configuration.',
+      },
+      {
+        title: 'Web worker support',
+        category: 'Performance',
+        impact: 'Important',
+        description:
+          'Angular 8 added CLI support for generating and wiring web workers for CPU-heavy browser work.',
+      },
+      {
+        title: 'ng deploy in CLI 8.3',
+        category: 'Tooling',
+        impact: 'Important',
+        description:
+          'Angular CLI 8.3 added ng deploy and refreshed the initial ng new app experience.',
+      },
     ],
     examples: [
       {
@@ -154,6 +605,13 @@ export class TodoComponent {
 ];`,
         explanation:
           'The important shift was using native import() for lazy boundaries instead of the old string-based module path.',
+      },
+      {
+        title: 'Generate a web worker',
+        language: 'bash',
+        code: `ng generate web-worker image-processor`,
+        explanation:
+          'Angular 8 made web-worker setup easier through the CLI, which helped move expensive browser tasks away from the main UI thread.',
       },
     ],
   },
