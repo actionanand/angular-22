@@ -57,7 +57,7 @@ export const angularReleases: readonly AngularRelease[] = [
         category: 'Tooling',
         impact: 'Important',
         description:
-          'AngularJS helped teams structure browser apps with controllers, templates, dependency injection, and scope-based state. It is commonly discussed through MVC and MVVM architecture lenses.',
+          'AngularJS helped teams structure browser apps with controllers, templates, dependency injection, and scope-based state. It is commonly discussed through MVC (Model-View-Controller) and MVVM (Model-View-ViewModel) architecture lenses.',
       },
       {
         title: 'Two-way data binding',
@@ -153,7 +153,7 @@ export const angularReleases: readonly AngularRelease[] = [
         category: 'Migration',
         impact: 'Important',
         description:
-          'Angular 2 was announced in January 2014, had a developer preview on April 30, 2015, beta in December 2015, RC1 in May 2016, and stable release in September 2016.',
+          'Angular 2 was announced in January 2014, had a developer preview on April 30, 2015, beta in December 2015, RC1 (Release Candidate 1) in May 2016, and stable release in September 2016.',
       },
     ],
     examples: [
@@ -362,7 +362,7 @@ export class AppComponent {
     year: '2018',
     theme: 'CLI, libraries, and workspace tooling',
     summary:
-      'Angular 6 shipped alongside Angular CLI 6 and Angular Material 6. It added ng update, ng add, Angular Elements, CDK improvements, workspace support, library support, schematics, tree-shakable providers, animation performance improvements, and RxJS 6.',
+      'Angular 6 shipped alongside Angular CLI 6 and Angular Material 6. It added ng update, ng add, Angular Elements, Component Dev Kit (CDK) improvements, workspace support, library support, schematics, tree-shakable providers, animation performance improvements, and RxJS 6.',
     features: [
       {
         title: 'ng update and ng add',
@@ -390,7 +390,7 @@ export class AppComponent {
         category: 'Tooling',
         impact: 'Important',
         description:
-          'Schematics provided a programmable way to generate and update Angular project code.',
+          'Schematics provided a programmable way to generate and update Angular project code. ng update , ng add',
       },
       {
         title: 'Tree-shakable providers',
