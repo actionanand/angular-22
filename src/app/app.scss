@@ -6,6 +6,12 @@
 }
 
 .page {
+  --accent: #188038;
+  --accent-strong: #0d652d;
+  --accent-soft: #e6f4ea;
+  --accent-border: #b7dfc4;
+  --focus: #fbbc04;
+
   display: grid;
   gap: 1.5rem;
   width: min(calc(100% - 2rem), 76rem);
@@ -13,7 +19,41 @@
   padding: 2rem 0 3rem;
 }
 
+.page[data-theme='blue'] {
+  --accent: #1967d2;
+  --accent-strong: #174ea6;
+  --accent-soft: #e8f0fe;
+  --accent-border: #b7c9f5;
+}
+
+.page[data-theme='pink'] {
+  --accent: #c2185b;
+  --accent-strong: #8c1745;
+  --accent-soft: #fde7f0;
+  --accent-border: #f5b4cf;
+}
+
+.page[data-theme='violet'] {
+  --accent: #7e3ff2;
+  --accent-strong: #5b21b6;
+  --accent-soft: #f0e9ff;
+  --accent-border: #c7b7f7;
+}
+
+.page[data-theme='amber'] {
+  --accent: #b06000;
+  --accent-strong: #7a4200;
+  --accent-soft: #fff4e5;
+  --accent-border: #f2c37d;
+}
+
 .page > * {
+  min-width: 0;
+}
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
   min-width: 0;
 }
 
@@ -36,7 +76,7 @@
 
 .hero__eyebrow {
   margin: 0;
-  color: #1967d2;
+  color: var(--accent);
   font-size: 0.86rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -69,7 +109,7 @@ h1 {
 }
 
 .hero__panel span {
-  color: #1967d2;
+  color: var(--accent);
   font-size: 0.78rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -107,6 +147,10 @@ app-summary-panel {
   .hero {
     grid-template-columns: 1fr;
     padding-top: 1rem;
+  }
+
+  .topbar {
+    justify-content: flex-start;
   }
 
   h1 {

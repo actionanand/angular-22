@@ -19,7 +19,7 @@
 
 .compare__eyebrow {
   margin: 0 0 0.35rem;
-  color: #1967d2;
+  color: var(--accent, #188038);
   font-size: 0.82rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -79,8 +79,18 @@ select {
 
 select:focus-visible,
 button:focus-visible {
-  outline: 3px solid #fbbc04;
+  outline: 3px solid var(--focus, #fbbc04);
   outline-offset: 2px;
+}
+
+select:disabled {
+  cursor: not-allowed;
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+option:disabled {
+  color: #8a94a6;
 }
 
 .compare__presets button {
@@ -88,7 +98,7 @@ button:focus-visible {
   border: 1px solid #cfd8e3;
   border-radius: 8px;
   background: #ffffff;
-  color: #174ea6;
+  color: var(--accent-strong, #0d652d);
   padding: 0.4rem 0.7rem;
   font: inherit;
   font-weight: 800;
@@ -96,8 +106,8 @@ button:focus-visible {
 }
 
 .compare__presets button:hover {
-  border-color: #1967d2;
-  background: #e8f0fe;
+  border-color: var(--accent, #188038);
+  background: var(--accent-soft, #e6f4ea);
 }
 
 .compare__result,
@@ -123,8 +133,8 @@ button:focus-visible {
 
 .compare__numbers span {
   border-radius: 999px;
-  background: #e6f4ea;
-  color: #137333;
+  background: var(--accent-soft, #e6f4ea);
+  color: var(--accent-strong, #0d652d);
   padding: 0.35rem 0.65rem;
   font-size: 0.84rem;
   font-weight: 800;
@@ -148,7 +158,7 @@ ul {
 li {
   display: grid;
   gap: 0.18rem;
-  border-left: 3px solid #1967d2;
+  border-left: 3px solid var(--accent, #188038);
   padding-left: 0.7rem;
 }
 

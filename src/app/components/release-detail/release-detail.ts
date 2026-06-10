@@ -1,4 +1,5 @@
 import { Component, computed, input } from '@angular/core';
+import { releaseDetailContent } from '../../data/app-content';
 import { AngularRelease } from '../../data/angular-releases';
 import { CodeExampleComponent } from '../code-example/code-example';
 import { FeatureBadge } from '../feature-badge/feature-badge';
@@ -9,15 +10,15 @@ import { FeatureBadge } from '../feature-badge/feature-badge';
   template: `
     <section class="release" aria-labelledby="release-title">
       <div class="release__intro">
-        <p class="release__eyebrow">{{ release().year }} release focus</p>
+        <p class="release__eyebrow">{{ release().year }} {{ content.releaseFocusSuffix }}</p>
         <h2 id="release-title">{{ release().label }}: {{ release().theme }}</h2>
         <p>{{ release().summary }}</p>
       </div>
 
-      <div class="release__stats" aria-label="Release feature counts">
-        <span>{{ majorCount() }} major</span>
-        <span>{{ migrationCount() }} migration</span>
-        <span>{{ release().features.length }} total notes</span>
+      <div class="release__stats" [attr.aria-label]="content.featureCountsLabel">
+        <span>{{ majorCount() }} {{ content.majorStat }}</span>
+        <span>{{ migrationCount() }} {{ content.migrationStat }}</span>
+        <span>{{ release().features.length }} {{ content.totalNotesStat }}</span>
       </div>
 
       <div class="feature-grid">
@@ -26,7 +27,7 @@ import { FeatureBadge } from '../feature-badge/feature-badge';
         }
       </div>
 
-      <div class="examples" aria-label="Code examples">
+      <div class="examples" [attr.aria-label]="content.examplesLabel">
         @for (example of release().examples; track example.title) {
           <app-code-example [example]="example" />
         }
@@ -37,6 +38,7 @@ import { FeatureBadge } from '../feature-badge/feature-badge';
 })
 export class ReleaseDetail {
   readonly release = input.required<AngularRelease>();
+  protected readonly content = releaseDetailContent;
 
   protected readonly majorCount = computed(
     () => this.release().features.filter((feature) => feature.impact === 'Major').length,

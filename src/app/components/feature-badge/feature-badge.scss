@@ -12,8 +12,8 @@
 }
 
 .feature--major {
-  border-color: #1967d2;
-  box-shadow: inset 0 3px 0 #1967d2;
+  border-color: var(--accent, #188038);
+  box-shadow: inset 0 3px 0 var(--accent, #188038);
 }
 
 .feature__meta {
@@ -37,13 +37,13 @@
 }
 
 .feature__category {
-  background: #e8f0fe;
-  color: #174ea6;
+  background: var(--accent-soft, #e6f4ea);
+  color: var(--accent-strong, #0d652d);
 }
 
 .feature__impact {
-  background: #e6f4ea;
-  color: #137333;
+  background: #eef2ff;
+  color: #3730a3;
 }
 
 h3 {
@@ -62,6 +62,6 @@ p {
 
 .feature__weight {
   margin-top: 0.85rem;
-  background: #fff4e5;
-  color: #8a4b00;
+  background: #f1f5f9;
+  color: #334155;
 }

@@ -1,16 +1,21 @@
-<main class="page">
+<main class="page" [attr.data-theme]="selectedTheme()">
+  <div class="topbar">
+    <app-theme-switcher
+      [themes]="themes"
+      [selectedTheme]="selectedTheme()"
+      (themeSelected)="selectTheme($event)"
+    />
+  </div>
+
   <section class="hero" aria-labelledby="page-title">
     <div class="hero__content">
-      <p class="hero__eyebrow">Angular release explorer</p>
-      <h1 id="page-title">Major changes before Angular 8 to Angular 22</h1>
-      <p>
-        A practical, version-by-version guide from AngularJS history to Ivy-era Angular, standalone,
-        signals, modern templates, and Angular 22 signal-first defaults.
-      </p>
+      <p class="hero__eyebrow">{{ content.eyebrow }}</p>
+      <h1 id="page-title">{{ content.title }}</h1>
+      <p>{{ content.description }}</p>
     </div>
 
-    <div class="hero__panel" aria-label="Current focus">
-      <span>Current focus</span>
+    <div class="hero__panel" [attr.aria-label]="content.currentFocusAriaLabel">
+      <span>{{ content.currentFocusLabel }}</span>
       <strong>{{ selectedRelease().label }}</strong>
       <p>{{ selectedRelease().theme }}</p>
     </div>
@@ -18,7 +23,7 @@
 
   <app-summary-panel [releases]="releases" />
 
-  <section class="section" aria-label="Select a release">
+  <section class="section" [attr.aria-label]="content.releasePickerLabel">
     <app-release-timeline
       [releases]="releases"
       [selectedKey]="selectedKey()"
