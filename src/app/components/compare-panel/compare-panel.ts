@@ -1,5 +1,10 @@
 import { Component, computed, input, signal } from '@angular/core';
-import { compareContent, comparisonPresets, type ComparisonPreset } from '../../data/app-content';
+import {
+  compareContent,
+  compareDefaults,
+  comparisonPresets,
+  type ComparisonPreset,
+} from '../../data/app-content';
 import { AngularRelease } from '../../data/angular-releases';
 import { FeatureBadge } from '../feature-badge/feature-badge';
 
@@ -30,12 +35,12 @@ import { FeatureBadge } from '../feature-badge/feature-badge';
 
         <label>
           {{ content.toLabel }}
-          <select [value]="endKey()" [disabled]="toDisabled()" (change)="setEnd($event)">
+          <select [value]="activeEndKey()" [disabled]="toDisabled()" (change)="setEnd($event)">
             @for (release of releases(); track release.key) {
               <option
                 [value]="release.key"
                 [disabled]="isToOptionDisabled(release)"
-                [selected]="release.key === endKey()"
+                [selected]="release.key === activeEndKey()"
               >
                 {{ release.label }}
               </option>
@@ -112,10 +117,11 @@ export class ComparePanel {
   readonly releases = input.required<readonly AngularRelease[]>();
 
   protected readonly content = compareContent;
+  protected readonly defaults = compareDefaults;
   protected readonly presets = comparisonPresets;
 
-  protected readonly startKey = signal('21.2');
-  protected readonly endKey = signal('22');
+  protected readonly startKey = signal<string>(this.defaults.from);
+  protected readonly endKey = signal<string>(this.defaults.to);
 
   protected readonly sortedReleases = computed(() =>
     [...this.releases()].sort((left, right) => left.order - right.order),
@@ -126,7 +132,10 @@ export class ComparePanel {
   );
 
   protected readonly fromOptions = computed(() =>
-    this.sortedReleases().filter((release) => release.order < this.maxOrder()),
+    this.sortedReleases().filter(
+      (release) =>
+        !this.defaults.hideLatestReleaseFromFromDropdown || release.order < this.maxOrder(),
+    ),
   );
 
   protected readonly startRelease = computed(() => this.findRelease(this.startKey()));
@@ -135,9 +144,11 @@ export class ComparePanel {
 
   protected readonly toDisabled = computed(() => !this.startRelease());
 
+  protected readonly activeEndKey = computed(() => this.validEndRelease()?.key ?? this.endKey());
+
   protected readonly comparedReleases = computed(() => {
     const start = this.startRelease();
-    const end = this.endRelease();
+    const end = this.validEndRelease();
 
     if (!start || !end) {
       return [];
@@ -167,7 +178,7 @@ export class ComparePanel {
 
   protected readonly targetOnlyFeatures = computed(() => {
     const start = this.startRelease();
-    const end = this.endRelease();
+    const end = this.validEndRelease();
 
     if (!start || !end || start.key === end.key) {
       return [];
@@ -178,7 +189,7 @@ export class ComparePanel {
 
   protected readonly comparisonSummary = computed(() => {
     const start = this.startRelease();
-    const end = this.endRelease();
+    const end = this.validEndRelease();
 
     if (!start || !end) {
       return this.content.fallbackSummary;
@@ -225,6 +236,21 @@ export class ComparePanel {
 
   private findRelease(key: string): AngularRelease | undefined {
     return this.releases().find((release) => release.key === key);
+  }
+
+  private validEndRelease(): AngularRelease | undefined {
+    const start = this.startRelease();
+    const configuredEnd = this.endRelease();
+
+    if (!start) {
+      return configuredEnd;
+    }
+
+    if (configuredEnd && configuredEnd.order > start.order) {
+      return configuredEnd;
+    }
+
+    return this.sortedReleases().find((release) => release.order > start.order);
   }
 
   private readSelectValue(event: Event, fallback: string): string {

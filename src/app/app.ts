@@ -16,7 +16,7 @@ import { AngularRelease, angularReleases } from './data/angular-releases';
 export class App {
   protected readonly releases = angularReleases;
   protected readonly content = pageContent;
-  protected readonly selectedKey = signal('22');
+  protected readonly selectedKey = signal<string>(this.content.defaultReleaseKey);
   protected readonly selectedTheme = signal<ThemeKey>('green');
   protected readonly themes = themeChoices;
 

@@ -12,6 +12,12 @@ export interface ComparisonPreset {
   readonly end: string;
 }
 
+export interface CompareDefaults {
+  readonly from: string;
+  readonly to: string;
+  readonly hideLatestReleaseFromFromDropdown: boolean;
+}
+
 export const pageContent = {
   eyebrow: 'Angular release explorer',
   title: 'Major changes before Angular 8 to Angular 22',
@@ -19,6 +25,7 @@ export const pageContent = {
     'A practical, version-by-version guide from AngularJS history to Ivy-era Angular, standalone, signals, modern templates, and Angular 22 signal-first defaults.',
   currentFocusLabel: 'Current focus',
   currentFocusAriaLabel: 'Current focus',
+  defaultReleaseKey: '22',
   releasePickerLabel: 'Select a release',
 } as const;
 
@@ -144,6 +151,12 @@ export const compareContent = {
     'is a reverse comparison. It helps identify what you would lose or need to rewrite when reasoning about older code.',
   forwardSuffix: 'Focus on the major and migration notes before adopting syntax changes broadly.',
 } as const;
+
+export const compareDefaults: CompareDefaults = {
+  from: '21.2',
+  to: '22',
+  hideLatestReleaseFromFromDropdown: true,
+};
 
 export const comparisonPresets: readonly ComparisonPreset[] = [
   { label: 'AngularJS to 2', start: 'angularjs', end: '2' },
