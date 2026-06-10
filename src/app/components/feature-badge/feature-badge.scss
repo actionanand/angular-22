@@ -12,8 +12,8 @@
 }
 
 .feature--major {
-  border-color: #1967d2;
-  box-shadow: inset 0 3px 0 #1967d2;
+  border-color: var(--accent, #188038);
+  box-shadow: inset 0 3px 0 var(--accent, #188038);
 }
 
 .feature__meta {
@@ -37,12 +37,12 @@
 }
 
 .feature__category {
-  background: #e8f0fe;
-  color: #174ea6;
+  background: var(--accent-soft, #e6f4ea);
+  color: var(--accent-strong, #0d652d);
 }
 
 .feature__impact {
-  background: #e6f4ea;
+  background: #eef8f1;
   color: #137333;
 }
 

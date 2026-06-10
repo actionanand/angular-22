@@ -23,7 +23,7 @@ describe('App', () => {
     );
   });
 
-  it('should include the pre Angular 8 history milestone', async () => {
+  it('should include the early Angular history milestones', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
@@ -31,9 +31,9 @@ describe('App', () => {
     expect(compiled.textContent).toContain('AngularJS');
     expect(compiled.textContent).toContain('Angular 2');
     expect(compiled.textContent).toContain('Angular 3 skipped');
-    expect(compiled.textContent).toContain('Before Angular 8');
     expect(compiled.textContent).toContain('AngularJS and Angular are different');
     expect(compiled.textContent).toContain('@angular/router was already 3.x');
+    expect(compiled.textContent).not.toContain('Context recap');
   });
 
   it('should include the Angular 21.2 milestone', async () => {
@@ -43,5 +43,15 @@ describe('App', () => {
 
     expect(compiled.textContent).toContain('Angular 21.2');
     expect(compiled.textContent).toContain('Arrow functions directly in templates');
+  });
+
+  it('should show theme controls and the latest comparison by default', async () => {
+    const fixture = TestBed.createComponent(App);
+    await fixture.whenStable();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    expect(compiled.textContent).toContain('Theme');
+    expect(compiled.textContent).toContain('Green');
+    expect(compiled.textContent).toContain('Angular 21.2 to Angular 22');
   });
 });

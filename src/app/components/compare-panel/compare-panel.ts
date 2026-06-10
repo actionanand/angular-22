@@ -28,7 +28,7 @@ interface ComparisonPreset {
         <label>
           From
           <select [value]="startKey()" (change)="setStart($event)">
-            @for (release of releases(); track release.key) {
+            @for (release of fromOptions(); track release.key) {
               <option [value]="release.key">{{ release.label }}</option>
             }
           </select>
@@ -36,9 +36,11 @@ interface ComparisonPreset {
 
         <label>
           To
-          <select [value]="endKey()" (change)="setEnd($event)">
+          <select [value]="endKey()" [disabled]="toDisabled()" (change)="setEnd($event)">
             @for (release of releases(); track release.key) {
-              <option [value]="release.key">{{ release.label }}</option>
+              <option [value]="release.key" [disabled]="isToOptionDisabled(release)">
+                {{ release.label }}
+              </option>
             }
           </select>
         </label>
@@ -121,16 +123,26 @@ export class ComparePanel {
     { label: '21.2 to 22', start: '21.2', end: '22' },
   ];
 
-  protected readonly startKey = signal('9');
-  protected readonly endKey = signal('15');
+  protected readonly startKey = signal('21.2');
+  protected readonly endKey = signal('22');
 
   protected readonly sortedReleases = computed(() =>
     [...this.releases()].sort((left, right) => left.order - right.order),
   );
 
+  protected readonly maxOrder = computed(() =>
+    Math.max(...this.sortedReleases().map((release) => release.order)),
+  );
+
+  protected readonly fromOptions = computed(() =>
+    this.sortedReleases().filter((release) => release.order < this.maxOrder()),
+  );
+
   protected readonly startRelease = computed(() => this.findRelease(this.startKey()));
 
   protected readonly endRelease = computed(() => this.findRelease(this.endKey()));
+
+  protected readonly toDisabled = computed(() => !this.startRelease());
 
   protected readonly comparedReleases = computed(() => {
     const start = this.startRelease();
@@ -193,16 +205,31 @@ export class ComparePanel {
   });
 
   protected setStart(event: Event): void {
-    this.startKey.set(this.readSelectValue(event, this.startKey()));
+    const nextStartKey = this.readSelectValue(event, this.startKey());
+    this.startKey.set(nextStartKey);
+    this.syncEndAfterStart(nextStartKey);
   }
 
   protected setEnd(event: Event): void {
-    this.endKey.set(this.readSelectValue(event, this.endKey()));
+    const nextEndKey = this.readSelectValue(event, this.endKey());
+    const start = this.startRelease();
+    const nextEnd = this.findRelease(nextEndKey);
+
+    if (start && nextEnd && nextEnd.order > start.order) {
+      this.endKey.set(nextEndKey);
+    }
   }
 
   protected applyPreset(preset: ComparisonPreset): void {
     this.startKey.set(preset.start);
     this.endKey.set(preset.end);
+    this.syncEndAfterStart(preset.start);
+  }
+
+  protected isToOptionDisabled(release: AngularRelease): boolean {
+    const start = this.startRelease();
+
+    return !start || release.order <= start.order;
   }
 
   private findRelease(key: string): AngularRelease | undefined {
@@ -217,5 +244,24 @@ export class ComparePanel {
     }
 
     return fallback;
+  }
+
+  private syncEndAfterStart(startKey: string): void {
+    const start = this.findRelease(startKey);
+    const end = this.endRelease();
+
+    if (!start) {
+      return;
+    }
+
+    if (end && end.order > start.order) {
+      return;
+    }
+
+    const nextEnd = this.sortedReleases().find((release) => release.order > start.order);
+
+    if (nextEnd) {
+      this.endKey.set(nextEnd.key);
+    }
   }
 }

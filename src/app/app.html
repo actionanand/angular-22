@@ -1,4 +1,4 @@
-<main class="page">
+<main class="page" [attr.data-theme]="selectedTheme()">
   <section class="hero" aria-labelledby="page-title">
     <div class="hero__content">
       <p class="hero__eyebrow">Angular release explorer</p>
@@ -13,6 +13,11 @@
       <span>Current focus</span>
       <strong>{{ selectedRelease().label }}</strong>
       <p>{{ selectedRelease().theme }}</p>
+      <app-theme-switcher
+        [themes]="themes"
+        [selectedTheme]="selectedTheme()"
+        (themeSelected)="selectTheme($event)"
+      />
     </div>
   </section>
 

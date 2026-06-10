@@ -390,7 +390,7 @@ export class AppComponent {
         category: 'Tooling',
         impact: 'Important',
         description:
-          'Schematics provided a programmable way to generate and update Angular project code. ng update , ng add',
+          'Schematics provided the programmable code-generation and migration engine behind workflows such as ng add and ng update.',
       },
       {
         title: 'Tree-shakable providers',
@@ -488,48 +488,6 @@ export class UserService {
 </cdk-virtual-scroll-viewport>`,
         explanation:
           'Virtual scrolling was one of the CDK features that helped Angular apps handle large interaction-heavy screens.',
-      },
-    ],
-  },
-  {
-    key: 'before-8',
-    label: 'Before Angular 8',
-    order: 7.5,
-    year: '2010-2019',
-    theme: 'Context recap',
-    summary:
-      'Before Angular 8, Angular went through the AngularJS era, a complete Angular 2 rewrite, the Angular 3 version skip, and Angular 4 to 7 platform maturity. This recap box connects that history before the Ivy and modern-build era begins.',
-    features: [
-      {
-        title: 'AngularJS to Angular was a framework change',
-        category: 'Migration',
-        impact: 'Major',
-        description:
-          'Angular 2+ intentionally dropped JS from the name and replaced AngularJS architecture with a TypeScript component platform.',
-      },
-      {
-        title: 'Angular 3 was skipped for package clarity',
-        category: 'Migration',
-        impact: 'Important',
-        description:
-          'Because @angular/router had already reached 3.x while core packages were 2.x, the team aligned the main packages at 4.0.',
-      },
-      {
-        title: 'Angular 4 to 7 refined the platform',
-        category: 'Tooling',
-        impact: 'Important',
-        description:
-          'These releases improved generated code, HttpClient, forms, Universal, CLI workspaces, schematics, libraries, Material/CDK, bundle budgets, and dependency baselines.',
-      },
-    ],
-    examples: [
-      {
-        title: 'AngularJS versus Angular',
-        language: 'html',
-        code: `AngularJS 1.x:  ng-repeat, ng-if, ng-model, $scope
-Angular 2+:     components, TypeScript, DI, AOT, signals`,
-        explanation:
-          'The name is similar, but the programming model changed from controller/scope-based JavaScript to component-based TypeScript.',
       },
     ],
   },
@@ -962,6 +920,19 @@ increment(): void {
         explanation:
           'Signals make state reads explicit with count() and keep derived state pure with computed().',
       },
+      {
+        title: 'DestroyRef with takeUntilDestroyed',
+        language: 'ts',
+        code: `private readonly destroyRef = inject(DestroyRef);
+
+ngOnInit(): void {
+  this.search.valueChanges
+    .pipe(takeUntilDestroyed(this.destroyRef))
+    .subscribe((term) => this.query.set(term));
+}`,
+        explanation:
+          'DestroyRef gives Angular-owned lifecycle context to cleanup helpers. takeUntilDestroyed completes the observable subscription when the component is destroyed.',
+      },
     ],
   },
   {
@@ -1359,7 +1330,7 @@ export const sourceLinks = [
   },
   {
     label: 'Angular 4 release note',
-    href: 'https://blog.angular.io/angular-4-0-0-now-available-2d7d0999a032',
+    href: 'https://blog.angular.dev/angular-4-0-0-now-available-2d7d0999a032',
   },
   {
     label: 'Angular version compatibility',
