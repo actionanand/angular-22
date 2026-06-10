@@ -49,9 +49,12 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
+    const selects = compiled.querySelectorAll('select');
 
     expect(compiled.textContent).toContain('Theme');
     expect(compiled.textContent).toContain('Green');
     expect(compiled.textContent).toContain('Angular 21.2 to Angular 22');
+    expect(selects[0]?.value).toBe('21.2');
+    expect(selects[1]?.value).toBe('22');
   });
 });

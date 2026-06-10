@@ -21,7 +21,9 @@ import { FeatureBadge } from '../feature-badge/feature-badge';
           {{ content.fromLabel }}
           <select [value]="startKey()" (change)="setStart($event)">
             @for (release of fromOptions(); track release.key) {
-              <option [value]="release.key">{{ release.label }}</option>
+              <option [value]="release.key" [selected]="release.key === startKey()">
+                {{ release.label }}
+              </option>
             }
           </select>
         </label>
@@ -30,7 +32,11 @@ import { FeatureBadge } from '../feature-badge/feature-badge';
           {{ content.toLabel }}
           <select [value]="endKey()" [disabled]="toDisabled()" (change)="setEnd($event)">
             @for (release of releases(); track release.key) {
-              <option [value]="release.key" [disabled]="isToOptionDisabled(release)">
+              <option
+                [value]="release.key"
+                [disabled]="isToOptionDisabled(release)"
+                [selected]="release.key === endKey()"
+              >
                 {{ release.label }}
               </option>
             }
