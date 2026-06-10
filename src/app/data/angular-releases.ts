@@ -1322,38 +1322,3 @@ readonly results = httpResource(() => ({
     ],
   },
 ];
-
-export const sourceLinks = [
-  {
-    label: 'AngularJS official site',
-    href: 'https://angularjs.org/',
-  },
-  {
-    label: 'Angular 4 release note',
-    href: 'https://blog.angular.dev/angular-4-0-0-now-available-2d7d0999a032',
-  },
-  {
-    label: 'Angular version compatibility',
-    href: 'https://angular.dev/reference/versions',
-  },
-  {
-    label: 'Angular typed forms guide',
-    href: 'https://angular.dev/guide/forms/typed-forms',
-  },
-  {
-    label: 'Angular deferrable views guide',
-    href: 'https://angular.dev/guide/templates/defer',
-  },
-  {
-    label: 'Angular template expression syntax',
-    href: 'https://angular.dev/guide/templates/expression-syntax',
-  },
-  {
-    label: 'Angular 21.2 release notes',
-    href: 'https://newreleases.io/project/github/angular/angular/release/v21.2.0',
-  },
-  {
-    label: 'Angular 22 release overview',
-    href: 'https://blog.ninja-squad.com/2026/06/03/what-is-new-angular-22.0',
-  },
-] as const;

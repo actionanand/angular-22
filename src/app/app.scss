@@ -51,6 +51,12 @@
   min-width: 0;
 }
 
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
@@ -141,6 +147,10 @@ app-summary-panel {
   .hero {
     grid-template-columns: 1fr;
     padding-top: 1rem;
+  }
+
+  .topbar {
+    justify-content: flex-start;
   }
 
   h1 {

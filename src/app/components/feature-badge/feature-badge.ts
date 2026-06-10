@@ -1,4 +1,5 @@
 import { Component, computed, input } from '@angular/core';
+import { featureBadgeContent } from '../../data/app-content';
 import { ReleaseFeature } from '../../data/angular-releases';
 
 @Component({
@@ -20,20 +21,9 @@ import { ReleaseFeature } from '../../data/angular-releases';
 })
 export class FeatureBadge {
   readonly feature = input.required<ReleaseFeature>();
+  private readonly content = featureBadgeContent;
 
-  protected readonly weightText = computed(() => {
-    const impact = this.feature().impact;
-
-    if (impact === 'Major') {
-      return 'Big shift';
-    }
-
-    if (impact === 'Migration') {
-      return 'Plan work';
-    }
-
-    return 'Useful change';
-  });
+  protected readonly weightText = computed(() => this.content.weights[this.feature().impact]);
 
   protected readonly weightLabel = computed(() => `${this.feature().title}: ${this.weightText()}`);
 }

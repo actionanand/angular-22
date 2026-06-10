@@ -1,18 +1,11 @@
 import { Component, input, output } from '@angular/core';
-
-export type ThemeKey = 'green' | 'blue' | 'pink' | 'violet' | 'amber';
-
-export interface ThemeChoice {
-  readonly key: ThemeKey;
-  readonly label: string;
-  readonly color: string;
-}
+import { themeSwitcherContent, type ThemeChoice, type ThemeKey } from '../../data/app-content';
 
 @Component({
   selector: 'app-theme-switcher',
   template: `
-    <div class="theme-switcher" role="group" aria-label="Theme color">
-      <span class="theme-switcher__label">Theme</span>
+    <div class="theme-switcher" role="group" [attr.aria-label]="content.ariaLabel">
+      <span class="theme-switcher__label">{{ content.label }}</span>
 
       <div class="theme-switcher__options">
         @for (theme of themes(); track theme.key) {
@@ -35,4 +28,5 @@ export class ThemeSwitcher {
   readonly themes = input.required<readonly ThemeChoice[]>();
   readonly selectedTheme = input.required<ThemeKey>();
   readonly themeSelected = output<ThemeKey>();
+  protected readonly content = themeSwitcherContent;
 }

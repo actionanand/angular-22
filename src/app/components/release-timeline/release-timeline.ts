@@ -1,10 +1,11 @@
 import { Component, input, output } from '@angular/core';
+import { releaseTimelineContent } from '../../data/app-content';
 import { AngularRelease } from '../../data/angular-releases';
 
 @Component({
   selector: 'app-release-timeline',
   template: `
-    <nav class="timeline" aria-label="Angular release timeline">
+    <nav class="timeline" [attr.aria-label]="content.ariaLabel">
       @for (release of releases(); track release.key) {
         <button
           type="button"
@@ -24,4 +25,5 @@ export class ReleaseTimeline {
   readonly releases = input.required<readonly AngularRelease[]>();
   readonly selectedKey = input.required<string>();
   readonly selected = output<string>();
+  protected readonly content = releaseTimelineContent;
 }
