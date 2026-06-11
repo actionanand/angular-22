@@ -4,7 +4,7 @@ export const angular10Release: AngularRelease = {
   key: '10',
   label: 'Angular 10',
   order: 10,
-  year: '2020',
+  year: 'June 24, 2020',
   theme: 'Ecosystem quality release',
   summary:
     'Angular 10 was less flashy than v9, but it tightened defaults, warnings, and project quality for long-lived apps.',
@@ -28,6 +28,27 @@ export const angular10Release: AngularRelease = {
       impact: 'Important',
       description:
         'New projects targeted a more modern browser set, reducing legacy output for teams that did not need it.',
+    },
+    {
+      title: 'Angular Material date range picker',
+      category: 'Tooling',
+      impact: 'Important',
+      description:
+        'Angular Material added a date range picker, improving a common enterprise UI workflow.',
+    },
+    {
+      title: 'TypeScript 3.9 and package updates',
+      category: 'Tooling',
+      impact: 'Important',
+      description:
+        'Angular 10 aligned with TypeScript 3.9, tslib 2.0, and TSLint 6 while continuing the move toward stricter projects.',
+    },
+    {
+      title: 'ES5 builds disabled for new projects',
+      category: 'Performance',
+      impact: 'Migration',
+      description:
+        'New projects no longer generated ES5 output by default, reducing install and build weight for modern browser targets.',
     },
   ],
   examples: [

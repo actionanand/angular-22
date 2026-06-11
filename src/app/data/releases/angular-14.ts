@@ -4,7 +4,7 @@ export const angular14Release: AngularRelease = {
   key: '14',
   label: 'Angular 14',
   order: 14,
-  year: '2022',
+  year: 'June 2, 2022',
   theme: 'Typed forms and standalone preview',
   summary:
     'Angular 14 introduced two ideas that reshaped modern Angular: strictly typed reactive forms and standalone components.',
@@ -29,6 +29,20 @@ export const angular14Release: AngularRelease = {
       impact: 'Important',
       description:
         'Dependency injection became usable outside constructor parameters, enabling more functional Angular APIs.',
+    },
+    {
+      title: 'Untyped forms migration path',
+      category: 'Forms',
+      impact: 'Migration',
+      description:
+        'Existing forms could be migrated to UntypedFormGroup, UntypedFormControl, and related aliases when teams were not ready for strict typed forms.',
+    },
+    {
+      title: 'ES2020 compilation target',
+      category: 'Tooling',
+      impact: 'Important',
+      description:
+        'The TypeScript compilation target moved forward, matching the modern JavaScript baseline Angular was adopting.',
     },
   ],
   examples: [

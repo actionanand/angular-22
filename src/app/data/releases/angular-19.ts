@@ -4,7 +4,7 @@ export const angular19Release: AngularRelease = {
   key: '19',
   label: 'Angular 19',
   order: 19,
-  year: '2024',
+  year: 'November 19, 2024',
   theme: 'Standalone by default',
   summary:
     'Angular 19 made standalone the default mental model and expanded signal-based APIs for app architecture.',
@@ -37,6 +37,34 @@ export const angular19Release: AngularRelease = {
       description:
         'The framework explored higher-level reactive primitives for dependent state and async data.',
     },
+    {
+      title: 'HMR enabled by default',
+      category: 'Tooling',
+      impact: 'Important',
+      description:
+        'Hot Module Replacement improved edit-refresh workflows and became part of the default local development experience.',
+    },
+    {
+      title: 'Karma deprecation path',
+      category: 'Migration',
+      impact: 'Migration',
+      description:
+        'Angular continued moving toward a modern test-runner recommendation as Karma entered its deprecation path.',
+    },
+    {
+      title: 'Material 3 theming and time picker',
+      category: 'Tooling',
+      impact: 'Important',
+      description:
+        'Angular Material advanced its Material 3 theming APIs and added a time-picker component.',
+    },
+    {
+      title: 'AI-assisted migration schematics',
+      category: 'Tooling',
+      impact: 'Important',
+      description:
+        'New schematics helped modernize inputs, outputs, queries, inject-based dependency injection, and the new build system.',
+    },
   ],
   examples: [
     {
@@ -51,6 +79,14 @@ export class Badge {
 }`,
       explanation:
         'In modern Angular, the input function describes a reactive input without decorator metadata or NgModule ceremony.',
+    },
+    {
+      title: 'Linked signal from input',
+      language: 'ts',
+      code: `readonly userInput = input<User | null>(null);
+readonly user = linkedSignal(this.userInput);`,
+      explanation:
+        'linkedSignal helps derive writable state from reactive inputs without losing the source relationship.',
     },
   ],
 };

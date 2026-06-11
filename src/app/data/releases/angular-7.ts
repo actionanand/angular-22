@@ -4,7 +4,7 @@ export const angular7Release: AngularRelease = {
   key: '7',
   label: 'Angular 7',
   order: 7,
-  year: '2018',
+  year: 'October 18, 2018',
   theme: 'Material, CLI prompts, and performance',
   summary:
     'Angular 7 shipped with Angular CLI 7 and Angular Material 7. It focused on performance, CLI prompts, bundle budgets, dependency updates, and the CDK features that made large UI lists and interactions easier.',

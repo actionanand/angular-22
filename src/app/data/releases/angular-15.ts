@@ -4,7 +4,7 @@ export const angular15Release: AngularRelease = {
   key: '15',
   label: 'Angular 15',
   order: 15,
-  year: '2022',
+  year: 'November 18, 2022',
   theme: 'Standalone becomes stable',
   summary:
     'Angular 15 made standalone APIs production-ready and pushed the router, images, and Material components forward.',
@@ -34,6 +34,27 @@ export const angular15Release: AngularRelease = {
       category: 'Tooling',
       impact: 'Important',
       description: 'Components could reuse directive behavior through host directives.',
+    },
+    {
+      title: 'Standalone router and HttpClient APIs',
+      category: 'Migration',
+      impact: 'Important',
+      description:
+        'provideRouter and provideHttpClient made standalone application setup smaller and less NgModule-centered.',
+    },
+    {
+      title: 'Material MDC refactor and CDK Listbox',
+      category: 'Accessibility',
+      impact: 'Important',
+      description:
+        'Angular Material moved through a major MDC-based refactor and CDK Listbox improved accessible listbox patterns.',
+    },
+    {
+      title: 'esbuild improvements',
+      category: 'Performance',
+      impact: 'Important',
+      description:
+        'Angular 15 continued the esbuild path that later became central to the faster application builder.',
     },
   ],
   examples: [

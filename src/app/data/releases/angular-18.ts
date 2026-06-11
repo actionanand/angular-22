@@ -4,7 +4,7 @@ export const angular18Release: AngularRelease = {
   key: '18',
   label: 'Angular 18',
   order: 18,
-  year: '2024',
+  year: 'May 22, 2024',
   theme: 'Zoneless and hydration mature',
   summary:
     'Angular 18 made server rendering more interactive and opened the door to Angular apps that do not depend on Zone.js.',
@@ -29,6 +29,27 @@ export const angular18Release: AngularRelease = {
       impact: 'Important',
       description: 'Templates gained a cleaner way to name reusable expression results.',
     },
+    {
+      title: 'Material 3, control flow, and defer stabilize',
+      category: 'Tooling',
+      impact: 'Important',
+      description:
+        'Angular 18 stabilized and refined several recent additions, including Material 3 support, built-in control flow, and deferrable views.',
+    },
+    {
+      title: 'SSR and hydration debugging improves',
+      category: 'SSR',
+      impact: 'Important',
+      description:
+        'DevTools and server-rendering improvements made it easier to inspect hydration status and reason about SSR behavior.',
+    },
+    {
+      title: 'New build system migration prompt',
+      category: 'Migration',
+      impact: 'Important',
+      description:
+        'ng update could offer migration of application projects to the new build system, helping older workspaces adopt the faster builder.',
+    },
   ],
   examples: [
     {
@@ -39,6 +60,14 @@ export const angular18Release: AngularRelease = {
 });`,
       explanation:
         'This preview API showed the direction: signals and explicit notifications can drive UI updates without patching browser APIs.',
+    },
+    {
+      title: '@let in templates',
+      language: 'html',
+      code: `@let total = cartTotal();
+<strong>{{ total | currency }}</strong>`,
+      explanation:
+        '@let avoids repeating template expressions and keeps derived display values close to where they are rendered.',
     },
   ],
 };

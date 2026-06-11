@@ -4,7 +4,7 @@ export const angular8Release: AngularRelease = {
   key: '8',
   label: 'Angular 8',
   order: 8,
-  year: '2019',
+  year: 'May 28, 2019',
   theme: 'Modern build output starts',
   summary:
     'Angular 8 made production output more browser-aware and prepared teams for Ivy without forcing the migration yet.',
@@ -58,6 +58,20 @@ export const angular8Release: AngularRelease = {
       description:
         'Angular CLI 8.3 added ng deploy and refreshed the initial ng new app experience.',
     },
+    {
+      title: '@ViewChild and @ContentChild static option',
+      category: 'Migration',
+      impact: 'Migration',
+      description:
+        'View queries required an explicit second options object with static set to true or false, making query timing clearer before later migrations simplified the API.',
+    },
+    {
+      title: '@angular/http fully replaced',
+      category: 'Migration',
+      impact: 'Migration',
+      description:
+        'Apps were expected to use HttpClient from @angular/common/http instead of the older @angular/http package deprecated in Angular 5.',
+    },
   ],
   examples: [
     {
@@ -79,6 +93,14 @@ export const angular8Release: AngularRelease = {
       code: `ng generate web-worker image-processor`,
       explanation:
         'Angular 8 made web-worker setup easier through the CLI, which helped move expensive browser tasks away from the main UI thread.',
+    },
+    {
+      title: 'Static view query migration',
+      language: 'ts',
+      code: `@ViewChild(SearchBox, { static: false })
+private readonly searchBox?: SearchBox;`,
+      explanation:
+        'The static flag told Angular whether the query result was needed before change detection ran. Most event-driven UI queries used static: false.',
     },
   ],
 };

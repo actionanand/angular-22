@@ -4,7 +4,7 @@ export const angular6Release: AngularRelease = {
   key: '6',
   label: 'Angular 6',
   order: 6,
-  year: '2018',
+  year: 'May 4, 2018',
   theme: 'CLI, libraries, and workspace tooling',
   summary:
     'Angular 6 shipped alongside Angular CLI 6 and Angular Material 6. It added ng update, ng add, Angular Elements, Component Dev Kit (CDK) improvements, workspace support, library support, schematics, tree-shakable providers, animation performance improvements, and RxJS 6.',
