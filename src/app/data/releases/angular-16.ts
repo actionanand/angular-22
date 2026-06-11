@@ -4,7 +4,7 @@ export const angular16Release: AngularRelease = {
   key: '16',
   label: 'Angular 16',
   order: 16,
-  year: '2023',
+  year: 'May 3, 2023',
   theme: 'Signals arrive',
   summary:
     'Angular 16 introduced Signals, non-destructive hydration, and lifecycle helpers that pointed to a more reactive framework.',
@@ -35,6 +35,27 @@ export const angular16Release: AngularRelease = {
       impact: 'Important',
       description: 'Angular gained cleaner lifecycle cleanup APIs for RxJS and custom resources.',
     },
+    {
+      title: 'Signals and RxJS interop',
+      category: 'Reactivity',
+      impact: 'Important',
+      description:
+        'The rxjs-interop package helped bridge observables and signals with helpers such as toSignal and takeUntilDestroyed.',
+    },
+    {
+      title: 'Jest support and test-runner transition',
+      category: 'Tooling',
+      impact: 'Important',
+      description:
+        'Angular 16 started laying more visible groundwork for modern test runners beyond the older Karma-centered setup.',
+    },
+    {
+      title: 'Standalone migration schematics',
+      category: 'Migration',
+      impact: 'Important',
+      description:
+        'New migration tooling helped teams convert NgModule-heavy applications toward standalone APIs incrementally.',
+    },
   ],
   examples: [
     {
@@ -61,6 +82,15 @@ ngOnInit(): void {
 }`,
       explanation:
         'DestroyRef gives Angular-owned lifecycle context to cleanup helpers. takeUntilDestroyed completes the observable subscription when the component is destroyed.',
+    },
+    {
+      title: 'Observable to signal',
+      language: 'ts',
+      code: `readonly user = toSignal(this.userService.currentUser$, {
+  initialValue: null,
+});`,
+      explanation:
+        'Interop helpers let teams adopt signals without rewriting every observable-based service at once.',
     },
   ],
 };

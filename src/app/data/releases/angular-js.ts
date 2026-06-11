@@ -4,7 +4,7 @@ export const angularJsRelease: AngularRelease = {
   key: 'angularjs',
   label: 'AngularJS',
   order: 1,
-  year: '2010-2022',
+  year: 'October 20, 2010 to April 7, 2022',
   theme: 'Angular 1.x era',
   summary:
     'AngularJS, also called Angular 1.x, was the original Google framework for building Single Page Applications with HTML templates and JavaScript. It was first released as v0.9.0 on Wednesday, October 20, 2010, reached production-ready v1.0.0 on Thursday, June 14, 2012, had official EOL on Friday, December 31, 2021, and its final official release was v1.8.3 on Thursday, April 7, 2022.',

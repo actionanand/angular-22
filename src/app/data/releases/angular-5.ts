@@ -4,7 +4,7 @@ export const angular5Release: AngularRelease = {
   key: '5',
   label: 'Angular 5',
   order: 5,
-  year: '2017',
+  year: 'November 1, 2017',
   theme: 'Compiler, HTTP, and forms polish',
   summary:
     'Angular 5 improved the compiler, enabled Build Optimizer by default for CLI production builds, added better internationalized pipes, improved Universal, and moved apps from @angular/http toward HttpClient.',

@@ -4,7 +4,7 @@ export const angular4Release: AngularRelease = {
   key: '4',
   label: 'Angular 4',
   order: 4,
-  year: '2017',
+  year: 'March 23, 2017',
   theme: 'Smaller and faster Angular',
   summary:
     'Angular 4 stabilized the new platform after the Angular 2 rewrite. It reduced generated code size, improved compilation, moved animations out of @angular/core, added template improvements, and supported newer TypeScript versions.',

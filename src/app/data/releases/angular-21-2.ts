@@ -4,7 +4,7 @@ export const angular21_2Release: AngularRelease = {
   key: '21.2',
   label: 'Angular 21.2',
   order: 21.2,
-  year: '2026',
+  year: 'February 26, 2026',
   theme: 'Important minor release',
   summary:
     'Angular 21.2 was a small-version-big-impact release: template expressiveness, switch exhaustiveness, Eager naming, resource snapshots, and Signal Forms improvements landed here, not in 21.0.',

@@ -4,7 +4,7 @@ export const angular2Release: AngularRelease = {
   key: '2',
   label: 'Angular 2',
   order: 2,
-  year: '2016',
+  year: 'September 14, 2016',
   theme: 'Modern Angular begins',
   summary:
     'Angular 2.0.0 was officially released on September 14, 2016. It was a complete rewrite of AngularJS and introduced the modern Angular platform: TypeScript, components, decorators, dependency injection, RxJS, templates, pipes, and NgModules.',
